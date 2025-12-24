@@ -11,7 +11,7 @@
 
   <!-- Favicon -->
   <link rel="apple-touch-icon" sizes="180x180" href="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAiIGhlaWdodD0iMzAiIHZpZXdCb3g9IjAgMCAzMCAzMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNMTAgMTIuNVYyMEwyMCAyNUwyOS43NTEgMTkuOTk5QzI5LjkxNiAxOS45MTIgMzAgMTkuNzQ3IDMwIDE5LjU3MlYxMC40MjhDMzAgMTAuMjUzIDI5LjkxNiAxMC4wODggMjkuNzUxIDEwLjAwMUwyMCA1TDEwIDkuNVY1SDUuNUM0LjY3MTU3IDUgNCA1LjY3MTU3IDQgNi41VjIzLjVDNCAyNC4zMjg0IDQuNjcxNTcgMjUgNS41IDI1SDEwVjIwTDIgMTUuNXYtM0wxMCA4VjEyLjVaIiBmaWxsPSIjNGY0NmU1Ii8+PC9zdmc+">
-  <link rel="icon" type="image/png" sizes="32x32" href="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAiIGhlaWdodD0iMzAiIHZpZXdCb3g9IjAgMCAzMCAzMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNMTAgMTIuNVYyMEwyMCAyNUwyOS43NTEgMTkuOTk5QzI5LjkxNiAxOS45MTIgMzAgMTkuNzQ3IDMwIDE5LjU3MlYxMC40MjhDMzAgMTAuMjUzIDI5LjkxNiAxMC4wODggMjkuNzUxIDEwLjAwMUwyMCA1TDEwIDkuNVY1SDUuNUM0LjY3MTU3IDUgNCA1LjY3MTU3IDQgNi41VjIzLjVDNCAyNC4zMjg0IDQuNjcxNTcgMjUgNS41IDI1SDEwVjIwTDIgMTUuNXYtM0wxMCA4VjEyLjVaIiBmaWxsPSIjNGY0NmU1Ii8+PC9zdmc+">
+  <link rel="icon" type="image/png" sizes="32x32" href="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAiIGhlaWdodD0iMzAiIHZpZXdCb3g9IjAgMCAzMCAzMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNMTAgMTIuNVYyMEwyMCAyNUwyOS43NTEgMTkuOTk5QzI5LjkxNiAxOS45MTIgMzAgMTkuNzQ3IDMwIDE5LjU3MlYxMC40MjhDMzAgMTAuMjUzIDI5LjkxNiAxMC4wODggMjkuNzUxIDEwLjAwMUwyMCA1TDEwIDkuNVY1SDUuNUM0LjY3MTU3IDUgNCA1LjY3MTU3IDQgNi41VjIzLjZDNCAyNC40Mjg0IDQuNjcxNTcgMjUgNS41IDI1SDEwVjIwTDIgMTUuNXYtM0wxMCA4VjEyLjVaIiBmaWxsPSIjNGY0NmU1Ii8+PC9zdmc+">
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -1146,6 +1146,8 @@
       position: relative;
       transform: translateY(50px);
       transition: var(--transition);
+      max-height: 90vh;
+      overflow-y: auto;
     }
 
     .appointment-modal.active .modal-content {
@@ -1690,7 +1692,7 @@
 
           <div class="doctor-card fade-in">
             <div class="doctor-image-wrapper">
-              <img src="https://images.unsplash.com/photo-1591604021695-0c69b7c05981?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" 
+              <img src="" 
                    alt="دکتر مریم حسینی" class="doctor-img">
             </div>
             <div class="doctor-info">
@@ -1708,8 +1710,7 @@
           </div>
 
           <div class="doctor-card fade-in">
-            <div class="doctor-image-wrapper">
-              <img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1064&q=80" 
+            <div class="" 
                    alt="دکتر محسن محمدی" class="doctor-img">
             </div>
             <div class="doctor-info">
@@ -1738,7 +1739,7 @@
         مطب دکتر توکلی از شنبه تا پنجشنبه از ساعت ۸ صبح تا ۶ عصر آماده ارائه خدمات دندانپزشکی با بهترین کیفیت به شما عزیزان می‌باشد. برای رزرو نوبت تماس بگیرید.
       </p>
       <div class="hero-cta">
-        <button class="btn cta-btn" onclick="makePhoneCall('09390247578')">
+        <button class="btn cta-btn" onclick="makePhoneCall('04136685937')">
           <i class="fas fa-phone"></i>
           تماس برای نوبت
         </button>
@@ -1926,8 +1927,12 @@
       <h3 class="modal-title">رزرو نوبت آنلاین</h3>
       <form id="appointment-form">
         <div class="form-group">
-          <label class="form-label">نام و نام خانوادگی</label>
+          <label class="form-label">نام</label>
           <input type="text" class="form-control" id="first-name" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label">نام خانوادگی</label>
+          <input type="text" class="form-control" id="last-name" required>
         </div>
         <div class="form-group">
           <label class="form-label">شماره تماس</label>
@@ -1953,7 +1958,7 @@
           <label class="form-label">توضیحات (اختیاری)</label>
           <textarea class="form-control" id="description" rows="3"></textarea>
         </div>
-        <button type="submit" class="btn w-100">
+        <button type="button" class="btn w-100" id="whatsapp-submit-btn">
           <i class="fab fa-whatsapp"></i>
           ارسال از طریق واتساپ
         </button>
@@ -2052,6 +2057,7 @@
     const openWhatsappFormBtns = document.querySelectorAll('.open-whatsapp-form-btn');
     const appointmentForm = document.getElementById('appointment-form');
     const openMapBtn = document.querySelector('.open-map-btn');
+    const whatsappSubmitBtn = document.getElementById('whatsapp-submit-btn');
 
     openWhatsappFormBtns.forEach(btn => {
       btn.addEventListener('click', () => {
@@ -2089,32 +2095,22 @@
       window.location.href = `tel:${finalNumber}`;
     }
 
-    // Function to open map with directions
+    // Function to open map with directions - FIXED VERSION
     function openMapWithDirections() {
+      // Use the universal map URL that should open in any map app
       const mapUrl = 'https://maps.app.goo.gl/hkC2vbB4CjxmNmKS9';
       
-      // Try to open in Google Maps app first
-      const googleMapsAppUrl = `comgooglemaps://?q=دکتر+توکلی+تبریز&directionsmode=driving`;
-      const appleMapsUrl = `maps://maps.apple.com/?q=دکتر+توکلی+تبریز&dirflg=d`;
+      // For mobile devices, use window.location.href to open in app
+      // This will trigger the "open in app" dialog on mobile
+      window.location.href = mapUrl;
       
-      // Check if we're on iOS
-      const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
-      
-      if (isIOS) {
-        // Try Apple Maps first on iOS
-        window.location.href = appleMapsUrl;
-        setTimeout(() => {
-          // If Apple Maps doesn't open, fall back to Google Maps web
+      // Fallback for desktop or if mobile app not available
+      setTimeout(function() {
+        // If still on same page after 500ms, open in new tab
+        if (!document.hidden) {
           window.open(mapUrl, '_blank');
-        }, 500);
-      } else {
-        // On Android, try Google Maps app
-        window.location.href = googleMapsAppUrl;
-        setTimeout(() => {
-          // If Google Maps app doesn't open, fall back to web
-          window.open(mapUrl, '_blank');
-        }, 500);
-      }
+        }
+      }, 500);
     }
 
     // Set up map button
@@ -2122,17 +2118,22 @@
       openMapBtn.addEventListener('click', openMapWithDirections);
     }
 
-    // WhatsApp form submission
-    appointmentForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      
+    // WhatsApp form submission - FIXED VERSION
+    function submitToWhatsApp() {
       // Get form values
-      const firstName = document.getElementById('first-name').value;
-      const lastName = document.getElementById('last-name').value;
-      const phone = document.getElementById('phone').value;
+      const firstName = document.getElementById('first-name').value.trim();
+      const lastName = document.getElementById('last-name').value.trim();
+      const phone = document.getElementById('phone').value.trim();
       const date = document.getElementById('date').value;
-      const service = document.getElementById('service').value;
-      const description = document.getElementById('description').value;
+      const serviceSelect = document.getElementById('service');
+      const service = serviceSelect.options[serviceSelect.selectedIndex].text;
+      const description = document.getElementById('description').value.trim();
+      
+      // Validate form
+      if (!firstName || !lastName || !phone || !date || !service) {
+        alert('لطفاً تمام فیلدهای ضروری را پر کنید');
+        return;
+      }
       
       // Format service name
       const serviceNames = {
@@ -2144,12 +2145,12 @@
         'checkup': 'معاینه عمومی'
       };
       
-      const serviceName = serviceNames[service] || service;
+      const serviceName = serviceNames[serviceSelect.value] || service;
       
       // Create WhatsApp message
       const message = `📅 *درخواست رزرو نوبت دندانپزشکی*
       
-👤 *نام و نام خانوادگی:* ${firstName}
+👤 *نام و نام خانوادگی:* ${firstName} ${lastName}
 📞 *شماره تماس:* ${phone}
 📅 *تاریخ مورد نظر:* ${date}
 🦷 *نوع خدمت:* ${serviceName}
@@ -2166,17 +2167,27 @@
       // Create WhatsApp URL
       const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
       
-      // Open WhatsApp
-      window.open(whatsappUrl, '_blank');
-      
-      // Close modal and reset form
+      // Close modal first
       modal.classList.remove('active');
       document.body.style.overflow = 'auto';
-      appointmentForm.reset();
       
-      // Show confirmation message
-      alert('درخواست شما آماده ارسال به واتساپ است. لطفاً در پنجره باز شده پیام را ارسال کنید.');
-    });
+      // Open WhatsApp - Use window.location for mobile, window.open for desktop
+      if (/Android|iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+        // For mobile devices
+        window.location.href = whatsappUrl;
+      } else {
+        // For desktop
+        window.open(whatsappUrl, '_blank');
+      }
+      
+      // Reset form
+      appointmentForm.reset();
+    }
+
+    // Set up WhatsApp submit button
+    if (whatsappSubmitBtn) {
+      whatsappSubmitBtn.addEventListener('click', submitToWhatsApp);
+    }
 
     // Set up phone call buttons
     document.querySelectorAll('.contact-info').forEach(el => {
@@ -2245,6 +2256,13 @@
         slider.scrollLeft = scrollLeft - walk;
       });
     }
+
+    // Prevent form submission on Enter key
+    appointmentForm.addEventListener('keypress', function(e) {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+      }
+    });
   </script>
 </body>
 </html>
