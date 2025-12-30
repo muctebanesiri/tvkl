@@ -13,18 +13,26 @@
   <link rel="apple-touch-icon" sizes="180x180" href="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAiIGhlaWdodD0iMzAiIHZpZXdCb3g9IjAgMCAzMCAzMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNMTAgMTIuNVYyMEwyMCAyNUwyOS43NTEgMTkuOTk5QzI5LjkxNiAxOS45MTIgMzAgMTkuNzQ3IDMwIDE5LjU3MlYxMC40MjhDMzAgMTAuMjUzIDI5LjkxNiAxMC4wODggMjkuNzUxIDEwLjAwMUwyMCA1TDEwIDkuNVY1SDUuNUM0LjY3MTU3IDUgNCA1LjY3MTU3IDQgNi41VjIzLjVDNCAyNC4zMjg0IDQuNjcxNTcgMjUgNS41IDI1SDEwVjIwTDIgMTUuNXYtM0wxMCA4VjEyLjVaIiBmaWxsPSIjODQ2YWZmIi8+PC9zdmc+">
   <link rel="icon" type="image/png" sizes="32x32" href="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAiIGhlaWdodD0iMzAiIHZpZXdCb3g9IjAgMCAzMCAzMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNMTAgMTIuNVYyMEwyMCAyNUwyOS43NTEgMTkuOTk5QzI5LjkxNiAxOS45MTIgMzAgMTkuNzQ3IDMwIDE5LjU3MlYxMC40MjhDMzAgMTAuMjUzIDI5LjkxNiAxMC4wODggMjkuNzUxIDEwLjAwMUwyMCA1TDEwIDkuNVY1SDUuNUM0LjY3MTU3IDUgNCA1LjY3MTU3IDQgNi41VjIzLjZDNCAyNC40Mjg0IDQuNjcxNTcgMjUgNS41IDI1SDEwVjIwTDIgMTUuNXYtM0wxMCA4VjEyLjVaIiBmaWxsPSIjODQ2YWZmIi8+PC9zdmc+">
 
-  <!-- Fonts -->
+  <!-- Preload critical resources -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100;200;300;400;500;600;700;800;900&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100;200;300;400;500;600;700;800;900&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap">
+  <link rel="preload" as="style" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="preload" as="style" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+  <link rel="preload" as="script" href="https://unpkg.com/aos@2.3.1/dist/aos.js">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100;200;300;400;500;600;700;800;900&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet" media="all">
 
   <!-- Icons -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" media="all">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="all">
 
   <!-- AOS Animation -->
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" media="all">
 
+  <!-- ORIGINAL STYLE TAG - 100% UNCHANGED -->
   <style>
     /* ====== CSS Variables ====== */
     :root {
@@ -2770,26 +2778,47 @@
   </a>
 
   <!-- Scripts -->
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
-    // Initialize AOS
-    AOS.init({
-      duration: 1000,
-      once: true,
-      offset: 50,
-      easing: 'ease-out-cubic',
-      disable: window.innerWidth < 768 ? true : false // Disable on mobile for performance
-    });
-
-    // Preloader
-    window.addEventListener('load', function() {
+    // ULTRA-FAST LOADING - Minimal changes for instant load
+    
+    // 1. Hide preloader INSTANTLY (as soon as HTML is parsed)
+    document.addEventListener('DOMContentLoaded', function() {
       const preloader = document.getElementById('preloader');
-      setTimeout(() => {
-        preloader.style.opacity = '0';
-        preloader.style.visibility = 'hidden';
-      }, 500);
+      // Remove with no delay
+      preloader.style.display = 'none';
+      preloader.remove();
+      
+      // 2. Initialize AOS immediately if available
+      if (typeof AOS !== 'undefined') {
+        AOS.init({
+          duration: 1000,
+          once: true,
+          offset: 50,
+          easing: 'ease-out-cubic',
+          disable: window.innerWidth < 768
+        });
+      }
     });
-
+    
+    // 3. Load AOS script without blocking
+    window.addEventListener('load', function() {
+      const aosScript = document.createElement('script');
+      aosScript.src = 'https://unpkg.com/aos@2.3.1/dist/aos.js';
+      aosScript.onload = function() {
+        if (typeof AOS !== 'undefined') {
+          AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 50,
+            easing: 'ease-out-cubic',
+            disable: window.innerWidth < 768
+          });
+        }
+      };
+      document.head.appendChild(aosScript);
+    });
+    
+    // 4. YOUR ORIGINAL JAVASCRIPT EXACTLY AS IS - with one tiny optimization
     // Mobile Menu Functions - PERFECTED
     const hamburger = document.getElementById('hamburger');
     const mobileMenu = document.getElementById('mobileMenu');
