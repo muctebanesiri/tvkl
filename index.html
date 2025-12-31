@@ -2983,31 +2983,74 @@
       window.location.href = `tel:${finalNumber}`;
     }
 
-    // Function to open map with directions - INSTANT
+    // Function to open map with directions - FIXED FOR ALL MAP APPLICATIONS
     function openMapWithDirections() {
-      // Search query for the clinic
-      const searchQuery = encodeURIComponent("مطب دکتر توکلی باغمیشه تبریز");
+      // Clinic coordinates (latitude, longitude)
+      const latitude = 38.080554;
+      const longitude = 46.291083;
       
-      // Try to open in the most appropriate app
+      // Clinic name for search
+      const clinicName = encodeURIComponent("مطب دکتر توکلی باغمیشه تبریز");
+      const fullAddress = encodeURIComponent("تبریز، شهرک باغمیشه، ابتدای خیابان امیرکبیر، روبروی ایستگاه آتشنشانی، مجتمع پزشکی باغمیشه، طبقه دوم");
+      
+      // Detect user agent
       const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+      const isIOS = /iPad|iPhone|iPod/.test(userAgent) && !window.MSStream;
+      const isAndroid = /android/i.test(userAgent);
+      const isPersian = navigator.language === 'fa' || navigator.language === 'fa-IR';
       
-      // For iOS devices
-      if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
-        window.location.href = `maps://maps.apple.com/?q=${searchQuery}`;
+      // For iOS devices - open Apple Maps
+      if (isIOS) {
+        window.location.href = `maps://maps.apple.com/?q=${clinicName}&ll=${latitude},${longitude}`;
       } 
       // For Android devices
-      else if (/android/i.test(userAgent)) {
-        window.location.href = `geo:0,0?q=${searchQuery}`;
+      else if (isAndroid) {
+        // Check if user has Neshan Map installed
+        const neshanUrl = `intent://maps?q=${latitude},${longitude}&label=${clinicName}#Intent;scheme=neshan;package=neshan.maps;end`;
+        
+        // Try to open Neshan first for Persian users, then fallback to Google Maps
+        if (isPersian) {
+          window.location.href = neshanUrl;
+          
+          // Fallback if Neshan is not installed
+          setTimeout(function() {
+            window.location.href = `https://www.google.com/maps/search/?api=1&query=${latitude},${longitude}`;
+          }, 500);
+        } else {
+          window.location.href = `geo:${latitude},${longitude}?q=${latitude},${longitude}(${clinicName})`;
+        }
       }
-      // For other devices, use Google Maps web
+      // For desktop and other devices
       else {
-        window.open(`https://www.google.com/maps/search/?api=1&query=${searchQuery}`, '_blank');
+        // For Persian users, open Neshan web map
+        if (isPersian) {
+          window.open(`https://neshan.org/maps/@${latitude},${longitude},15z`, '_blank');
+        } 
+        // For others, use Google Maps
+        else {
+          window.open(`https://www.google.com/maps/search/?api=1&query=${latitude},${longitude}`, '_blank');
+        }
       }
     }
 
     // Set up map button
     if (openMapBtn) {
-      openMapBtn.addEventListener('click', openMapWithDirections);
+      openMapBtn.addEventListener('click', function() {
+        // Show map options modal or directly open based on user preference
+        if (navigator.language === 'fa' || navigator.language === 'fa-IR') {
+          // For Persian users, ask which map they prefer
+          if (confirm("کدام برنامه نقشه را ترجیح می‌دهید؟\n\nOK: نقشه گوگل (Google Maps)\nCancel: نشان (Neshan Map)")) {
+            // Google Maps
+            window.open('https://maps.app.goo.gl/r5S9CQUo6jLF4Qkr5', '_blank');
+          } else {
+            // Neshan Map
+            window.open('https://nshn.ir/70_bAlGJQCiZ8A', '_blank');
+          }
+        } else {
+          // For non-Persian users, open Google Maps directly
+          window.open('https://maps.app.goo.gl/r5S9CQUo6jLF4Qkr5', '_blank');
+        }
+      });
     }
 
     // WhatsApp form submission - INSTANT & OPTIMIZED
